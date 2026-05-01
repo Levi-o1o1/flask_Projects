@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drivers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>Driver Standings</h2>
+
+<table>
+    <tr>
+        <th>Pos</th>
+        <th>Driver</th>
+        <th>Team</th>
+        <th>Points</th>
+    </tr>
+
+    {% for d in drivers %}
+    <tr>
+        <td>{{ d.position }}</td>
+        <td>{{ d.name }}</td>
+        <td>{{ d.team }}</td>
+        <td>{{ d.points }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/">⬅ Back</a>
+
+</body>
+</html>

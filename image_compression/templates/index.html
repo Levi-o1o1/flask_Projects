@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compressor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Image Compressor</h1>
+    <p>Reduce image size quickly</p>
+
+    <form action="/compress" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+
+        <select name="level" required>
+            <option value="">Select compression</option>
+            <option value="low">Low (High Quality)</option>
+            <option value="medium">Medium</option>
+            <option value="high">High (Small Size)</option>
+        </select>
+
+        <button type="submit">Compress</button>
+    </form>
+
+    {% if success %}
+    <div class="result">
+        <div class="tick">✔</div>
+        <p>Compressed Successfully</p>
+
+        <p class="sizes">
+            {{ original }} KB → {{ compressed }} KB
+        </p>
+
+        <a href="/download/{{ file }}" class="download-btn">
+            Download Image
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

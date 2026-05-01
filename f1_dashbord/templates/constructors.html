@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Constructors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>Constructor Standings</h2>
+
+<table>
+    <tr>
+        <th>Pos</th>
+        <th>Team</th>
+        <th>Points</th>
+    </tr>
+
+    {% for t in teams %}
+    <tr>
+        <td>{{ t.position }}</td>
+        <td>{{ t.name }}</td>
+        <td>{{ t.points }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/">⬅ Back</a>
+
+</body>
+</html>
